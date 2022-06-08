@@ -117,3 +117,5 @@ dmypy.json
 
 # .directory files
 .directory
+
+cinn_for_imaging/experiments/

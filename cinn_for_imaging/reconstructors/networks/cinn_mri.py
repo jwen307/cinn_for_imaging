@@ -2,7 +2,8 @@
 Baseline cINN model from the Master thesis of Alexander Denker for the 
 LoDoPaB-CT dataset.
 """
-
+import sys
+sys.path.append("/home/wen.254/Research/mri/cinn_for_imaging/") 
 from cinn_for_imaging.reconstructors.networks.cinn import Flatten, _add_downsample
 import FrEIA.framework as Ff
 import FrEIA.modules as Fm
@@ -12,6 +13,7 @@ import torchvision
 
 import numpy as np
 import pytorch_lightning as pl
+
 
 from cinn_for_imaging.util.torch_losses import CINNNLLLoss
 from cinn_for_imaging.reconstructors.networks.layers import InvertibleDownsampling, Fixed1x1ConvOrthogonal, Split

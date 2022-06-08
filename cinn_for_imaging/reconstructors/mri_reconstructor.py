@@ -9,7 +9,8 @@ from dival.reconstructors import StandardLearnedReconstructor
 import odl
 import pytorch_lightning as pl
 
-from cinn_for_imaging.reconstructors.networks.cinn_mri import CINN
+#from cinn_for_imaging.reconstructors.networks.cinn_mri import CINN
+from .networks.cinn_mri import CINN
 
 class CINNReconstructor(StandardLearnedReconstructor):
     """

@@ -3,12 +3,16 @@ Train IUNetReconstructor on 'fastMRI'.
 """
 
 import os
+import time
 
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning import loggers as pl_loggers
 
-from cinn_for_imaging.reconstructors.iunet_reconstructor import IUNetReconstructor
-from cinn_for_imaging.datasets.fast_mri.data_util import FastMRIDataModule
+import sys
+sys.path.append("..") 
+from datasets.fast_mri.data_util import FastMRIDataModule
+from reconstructors.iunet_reconstructor import IUNetReconstructor
+
 
 #%% setup the dataset
 dataset = FastMRIDataModule(num_data_loader_workers=8)
@@ -35,8 +39,8 @@ checkpoint_callback = ModelCheckpoint(
 
 tb_logger = pl_loggers.TensorBoardLogger(log_dir)
 
-trainer_args = {'accelerator': 'ddp',
-                'gpus': [0],
+trainer_args = {
+                'gpus': 1,
                 'default_root_dir': log_dir,
                 'callbacks': [checkpoint_callback],
                 'benchmark': True,
@@ -76,4 +80,7 @@ reconstructor.special_init = True
 reconstructor.normalize_inn = True
 
 #%% train the reconstructor. Checkpointing and logging is enabled by default.
+start = time.time()
 reconstructor.train(dataset)
+end = time.time()
+print('Total Training Time: {0}'.format(end-start))

@@ -16,6 +16,8 @@ from dival.util.torch_utility import TorchRayTrafoParallel2DAdjointModule
 from odl.tomo.analytic import fbp_filter_op
 from odl.contrib.torch import OperatorModule
 
+import sys
+sys.path.append("../..") 
 from cinn_for_imaging.util.torch_losses import CINNNLLLoss
 from cinn_for_imaging.reconstructors.networks.layers import NICECouplingBlock, InvertibleDownsampling, Fixed1x1ConvOrthogonal, Split
 from cinn_for_imaging.reconstructors.networks.cond_net import SimpleCondNetFBP, AvgPoolCondNetFBP, ResNetCondNet

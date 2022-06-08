@@ -65,8 +65,8 @@ reconstructor = CINNReconstructor(
 # chkp_name = 'epoch=221-step=160727'
 # version = 'version_2'  # magneto
 # chkp_name = 'epoch=403-step=292495'
-version = 'version_3'  # magneto
-chkp_name = 'epoch=472-step=342451'
+version = 'version_5'  # magneto
+chkp_name = 'epoch=452'
 path_parts = ['..', 'experiments', 'fast_mri', 'cinn', 'default', version, 'checkpoints', chkp_name + '.ckpt']
 
 

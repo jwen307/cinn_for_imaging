@@ -3,7 +3,9 @@ import odl
 from torch.functional import norm 
 from torch.utils.data import DataLoader
 
-from cinn_for_imaging.datasets.fast_mri.mri_data import SliceDataset, to_tensor
+import sys
+sys.path.append("..") 
+from datasets.fast_mri.mri_data import SliceDataset, to_tensor
 
 import os 
 import torch
@@ -100,7 +102,7 @@ class FastMRIDataModule(pl.LightningDataModule):
         self.operator = odl.operator.default_ops.IdentityOperator(
                     odl.uniform_discr([0, 0], [1, 1], shape=(320, 320)))
         
-        base_path = "/localdata/fast_mri"  # TODO adapt
+        base_path = "/storage/data/"  # TODO adapt
         train_path = "singlecoil_train"
         val_path = "singlecoil_val"
         test_path = "singlecoil_test_v2"

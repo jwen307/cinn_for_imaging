@@ -1,8 +1,10 @@
 from copy import deepcopy
 
-from cinn_for_imaging.reconstructors.cinn_reconstructor import CINNReconstructor
-from cinn_for_imaging.reconstructors.networks.iunet import IUNet
+#from cinn_for_imaging.reconstructors.cinn_reconstructor import CINNReconstructor
+#from cinn_for_imaging.reconstructors.networks.iunet import IUNet
 
+from .cinn_reconstructor import CINNReconstructor
+from .networks.iunet import IUNet
 
 class IUNetReconstructor(CINNReconstructor):
     """

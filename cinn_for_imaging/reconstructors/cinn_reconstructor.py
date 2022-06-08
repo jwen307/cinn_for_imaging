@@ -7,7 +7,7 @@ import numpy as np
 from dival.reconstructors import StandardLearnedReconstructor
 import pytorch_lightning as pl
 
-from cinn_for_imaging.reconstructors.networks.cinn import CINN
+from .networks.cinn import CINN
 #from cinn_for_imaging.reconstructors.networks.ellipses_cinn import CINN
 
 class CINNReconstructor(StandardLearnedReconstructor):
